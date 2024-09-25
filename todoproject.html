@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="todostyle.css">
+<style>
+    .todo-item-container{
+        display: flex;
+    }
+    body{
+            background-image: url(./bgimg.png);
+    background-repeat: no-repeat;
+   background-size: cover;
+   height: 800px;
+        }
+    img{
+        width: 30px;
+        height: 30px;
+    }
+    #edit-button{
+        width: 50px;height: 50px;
+    }
+    #delete-button{
+        width: 50px;height: 50px;
+    }
+    .line-through{
+        text-decoration: line-through;
+        background-color: rgba(0, 128, 0, 0.829);
+        color: rgb(216, 216, 216);
+        transition: 0.5s; 
+        cursor: pointer;
+    }
+   
+    body{
+            margin: 0px;
+        }
+        .anchor{
+            margin: 0;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 100px;
+            padding-top: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            text-decoration: none;
+            background-color: rgba(10, 122, 137, 0);
+          
+        }
+        .anchor-1{
+            text-decoration: none;
+            font-weight: bold;
+            color: rgba(100, 4, 144, 0.576);
+            transition: 0.8s;
+        }
+        .anchor-1:hover{
+           color: rgb(1, 32, 53);
+        }
+        .h{
+            margin: 0;
+            text-align: center;
+            width: 100%;
+            height: 80px;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* border: 1px solid; */
+        }
+        main{
+            margin-left: 300px;
+        }
+
+</style>
+</head>
+<body>
+    <div class="anchor">
+        <a class="anchor-1" href="calsi.html">Calculator</a>
+        <a class="anchor-1" href="clock.html">Digital Clock</a>
+        <a class="anchor-1" href="todoproject.html">To Do List</a>
+        <a class="anchor-1" href="slider.html">Carousel</a>
+        <a class="anchor-1" href="sign.html">Login & Signup</a>
+       </div>
+       <h1 class="h">To Do List</h1>
+    <main class="main">
+        <div class="container">
+            
+            <div class="in"><input placeholder="Enter your task" type="text" name="" id="text-input">
+            <button id="add-button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </div>
+        </div>
+        <div class="todos-container">
+            
+            <!-- <div class="todo-item-container">
+                <p id="todo-text">read book</p>
+                <button id="edit-button"><img src="./newedit.png" alt=""></button>
+                 <button id="delete-button"><img src="./deletebg.png" alt=""></i></button>
+            </div> -->
+
+        </div>
+    </main>
+</body>
+<script>
+    const textInput=document.getElementById("text-input")
+    const addButton=document.getElementById("add-button")
+    const todosContainer=document.querySelector(".todos-container")
+
+    addButton.addEventListener("click",()=>{
+        if(textInput.value.trim().length =='')
+        return;
+
+        //create div element & className="todo-item-container"
+        var todoItemContainer=document.createElement("div")
+        todoItemContainer.classList.add("todo-item-container")
+        
+        todosContainer.appendChild(todoItemContainer)
+
+    
+
+        //create a p tag & id=todo-text
+        var todoText = document.createElement("p")
+        todoText.id = "todo-text"
+        todoText.innerText=textInput.value;
+        todoItemContainer.appendChild(todoText)
+            //add click to todotext
+            todoText.addEventListener("click",()=>{
+            todoText.classList.toggle("line-through")
+            // editButton.setAttribute("disabled","disabled")
+            })
+      
+
+
+        //create a button & id=edit-button
+        var editButton=document.createElement("button")
+        editButton.id="edit-button"
+          //create img add to edit button
+          var editImage=document.createElement("img")
+          editImage.src="newedit.png"
+          editButton.appendChild(editImage)
+          todoItemContainer.appendChild(editButton)
+         // add edit event
+         editButton.addEventListener("click",()=>{
+            textInput.value=todoText.innerText
+            var parent=editButton.parentElement
+            parent.parentElement.removeChild(parent)
+         })
+
+
+        //create button add id = delete-button
+        var deleteButton=document.createElement("button")
+        deleteButton.id="delete-button"
+          //create img add to delete button
+          var deleteImage=document.createElement("img")
+          deleteImage.src="deletebg.png"
+          deleteButton.appendChild(deleteImage)
+          todoItemContainer.appendChild(deleteButton)
+             //add delete event
+             deleteButton.addEventListener("click",()=>{
+                var parent=deleteButton.parentElement;
+                parent.parentElement.removeChild(parent)
+             })
+
+        textInput.value=""
+    })
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

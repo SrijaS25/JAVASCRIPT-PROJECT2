@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .but-1{
+            background-color: rgba(240, 248, 255, 0);
+            border: none;
+            position: absolute;
+            padding: 50px 15px;
+            z-index: 1;
+            left: 20px;
+            top: 200px;
+            font-size: 50px;
+        }
+        .but-1:hover{
+            border: 2px solid white;
+        
+        }
+        .but-2:hover{
+            border: 2px solid white;
+        
+        }
+        .but-2{
+            background-color: rgba(240, 248, 255, 0);
+            border: none;
+            font-size: 50px;
+            position: absolute;
+            padding: 50px 15px;
+            z-index: 1;
+            right: 20px;
+            top: 200px;
+        }
+        #pic{
+            width: 100%;
+            height: 800px;
+            position: absolute;
+        }
+       
+        .box1{
+            top: 20px;
+            left: 20px;
+            position: absolute;
+            z-index: 3
+        }
+        .box2{
+            left: 20px;
+            top: 150px;
+            position: absolute;
+            z-index: 3;
+        }
+        #i1{
+            width: 120px;
+            height: 100px;
+        }
+       .box{
+        text-align: center;
+        top: 400px;
+        position: relative;
+        width: 300px;
+        height: 300px;
+       
+        background-color: rgb(253, 248, 248);
+       }
+       #v{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+       }
+       .card1{
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+       }
+       body{
+            background-image: url(./bgimg.png);
+    background-repeat: no-repeat;
+   background-size: cover;
+   height: 800px;
+        }
+       body{
+            margin: 0px;
+        }
+        .anchor{
+            margin: 0;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 100px;
+            padding-top: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            text-decoration: none;
+            background-color: rgba(10, 122, 137, 0);
+          
+        }
+        .anchor-1{
+            text-decoration: none;
+            font-weight: bold;
+            color: rgba(100, 4, 144, 0.576);
+            transition: 0.8s;
+        }
+        .anchor-1:hover{
+           color: rgb(1, 32, 53);
+        }
+        /* .h{
+            margin: 0;
+            text-align: center;
+            width: 100%;
+            height: 80px;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* border: 1px solid; */
+        /* } */ */
+        .mater{
+            margin-top: 700px;
+        }
+    </style>
+</head>
+
+<body>
+   <div class="anchor">
+    <a class="anchor-1" href="calsi.html">Calculator</a>
+    <a class="anchor-1" href="clock.html">Digital Clock</a>
+    <a class="anchor-1" href="todoproject.html">To Do List</a>
+    <a class="anchor-1" href="slider.html">Carousel</a>
+    <a class="anchor-1" href="sign.html">Login & Signup</a>
+   </div>
+   
+<div>
+ <div>
+    <button onclick="mi()" class="but-1"><</button>
+    <img src="" id="pic" alt="">
+    <button onclick="pl()" class="but-2">></button>
+</div>
+<section id="v">
+<div class="card1">
+    <div class="box">
+         <div class="box1">
+           <img id="i1" src="./c1.jpg" alt="">
+           <img id="i1" src="./c2.jpg" alt="">
+        </div>
+        <div class="box2">
+            <img id="i1" src="./c3.jpg" alt="">
+            <img id="i1" src="./c4.jpg" alt="">
+        </div> 
+    </div>
+</div>
+
+<div class="card1">
+    
+    <div class="box">
+         <div class="box1">
+           <img id="i1" src="./ca1.jpg" alt="">
+           <img id="i1" src="./ca2.jpg" alt="">
+        </div>
+        <div class="box2">
+            <img id="i1" src="./ca3.jpg" alt="">
+            <img id="i1" src="./ca4.jpg" alt="">
+        </div> 
+    </div>
+</div>
+<div class="card1">
+    <div class="box">
+         <div class="box1">
+           <img id="i1" src="./b1.jpg" alt="">
+           <img id="i1" src="./b2.jpg" alt="">
+        </div>
+        <div class="box2">
+            <img id="i1" src="./b3.jpg" alt="">
+            <img id="i1" src="./b4.jpg" alt="">
+        </div> 
+    </div>
+</div>
+<div class="card1">
+    <div class="box">
+         <div class="box1">
+           <img id="i1" src="./s1.jpg" alt="">
+           <img id="i1" src="./s2.jpg" alt="">
+        </div>
+        <div class="box2">
+            <img id="i1" src="./s3.jpg" alt="">
+            <img id="i1" src="./s4.jpg" alt="">
+        </div> 
+    </div>
+</div>
+</div>
+</section>
+</body>
+<script>
+    arr=["m1.png","m3.jpg","m4.jpg","m5.jpg","m6.jpg","m7.jpg","m8.jpg"]
+    x=0
+    document.getElementById("pic").src=arr[x]
+    
+    mi = ()=>{
+           x-=1
+         if(x<0){
+            x=6
+         }
+           document.getElementById("pic").src=arr[x]
+       }
+       
+       pl = ()=>{
+        x+=1
+       if(x>6){
+        x=0
+       }
+        document.getElementById("pic").src=arr[x]
+    }
+    setInterval(pl,3000)
+    // setInterval(mi,3000)
+</script>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        input{
+            width: 410px;height: 80px;
+            font-size: 40px;
+           border: 2px solid rgba(245, 245, 220, 0.12);
+           background-color: rgba(240, 248, 255, 0.444);
+            text-align: right;
+            border-radius: 10px;
+        }
+        button{
+            padding: 30px;
+            font-size: 30px;
+            width: 100px;
+            height: 90px;
+            background-color: rgba(46, 44, 44, 0.418);
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        .ac{
+         width: 205px;
+        }
+        .pl{
+            width: 100px;
+            height: 190px;
+        }
+        main{
+            padding-top: 50px;
+            width: 100%;
+            /* border: 1px solid; */
+            align-items: center;
+         
+          
+        }
+        table{
+        
+            margin-left: 750px;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 10px;
+        }
+        body{
+            margin: 0px;
+        }
+        .anchor{
+            margin: 0;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 100px;
+            padding-top: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0);
+          
+        }
+        .anchor-1{
+            text-decoration: none;
+            font-weight: bold;
+            color: rgba(100, 4, 144, 0.576);
+            transition: 0.8s;
+        }
+        .anchor-1:hover{
+           color: rgb(1, 32, 53);
+        }
+        body{
+            background-image: url(./bgimg.png);
+    background-repeat: no-repeat;
+   background-size: cover;
+   height: 800px;
+        }
+        .h{
+            margin: 0;
+            text-align: center;
+            width: 100%;
+            height: 80px;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* border: 1px solid; */
+        }
+    </style>
+</head>
+<body>
+    <div class="anchor">
+        <a class="anchor-1" href="calsi.html">Calculator</a>
+        <a class="anchor-1" href="clock.html">Digital Clock</a>
+        <a class="anchor-1" href="todoproject.html">To Do List</a>
+        <a class="anchor-1" href="slider.html">Carousel</a>
+        <a class="anchor-1" href="sign.html">Login & Signup</a>
+       </div>
+       <h1 class="h">Calculator</h1>
+    <main>
+       
+        <table class="table">
+            <tr>
+                <td colspan="4"><input id="in" value="0" type="text"></td>
+                
+            </tr>
+            <tr>
+                <td  colspan="2"><button class="ac" onclick="clean()">AC</button></td>
+                <td class="div"><button onclick= 'dis("%")'>%</button></td>
+                <td><button onclick='dis("/")'>/</button></td>    
+            </tr>
+            <tr>
+                <td><button onclick="dis('7')">7</button></td>
+                <td><button onclick="dis('8')">8</button></td>
+                <td><button onclick="dis('9')">9</button></td>
+                <td><button onclick="dis('*')">*</button></td>    
+            </tr>
+            <tr>
+                <td><button onclick="dis('4')">4</button></td>
+                <td><button onclick="dis('5')">5</button></td>
+                <td><button onclick="dis('6')">6</button></td>
+                <td><button onclick="dis('-')">-</button></td>    
+            </tr>
+            <tr>
+                <td><button onclick="dis('1')">1</button></td>
+                <td><button onclick="dis('2')">2</button></td>
+                <td><button onclick="dis('3')">3</button></td>
+                <td rowspan="2"><button class="pl" onclick="dis('+')">+</button></td>    
+            </tr>
+            <tr>
+                <td><button onclick='dis(".")'>.</button></td>
+                <td><button onclick="dis('0')">0</button></td>
+                <td colspan="3"><button onclick="equal()">=</button></td>
+                   <td ></td>
+            </tr>
+        </table>
+    </main>
+</body>
+<script>
+    function dis(x){
+        if( document.getElementById("in").value ==0){
+            document.getElementById("in").value ="";
+            document.getElementById("in").value =x;
+        }else{
+            document.getElementById("in").value +=x;
+        }
+
+    }
+    function equal(){
+        var a=document.getElementById("in").value;
+        var y = eval(a)
+        document.getElementById("in").value = y;
+    }
+    
+    function clean(){
+        document.getElementById("in").value =0
+    }
+   
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</html>

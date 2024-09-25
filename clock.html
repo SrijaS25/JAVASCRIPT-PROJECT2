@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        /* body{
+            margin: 0;
+        } */
+        .container{
+        padding-top: 150px;
+      padding-top: 100px;
+        text-align: center;
+        width: 100%;
+        letter-spacing: 10px;
+     
+        height: 300px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   height: 400px;
+        color:rgba(20, 20, 20, 0.625);
+        font-size: 80px;
+    }
+  
+        /* #div{
+          
+            position: absolute;
+            width: 90%;
+            height: 500px;
+            border: 1px solid;
+        } */
+        body{
+            background-image: url(./bgimg.png);
+    background-repeat: no-repeat;
+   background-size: cover;
+   height: 500px;
+   margin: 0px;
+        }
+       
+        .anchor{
+            margin: 0;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 100px;
+            padding-top: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0);
+          
+        }
+        .anchor-1{
+            text-decoration: none;
+            font-weight: bold;
+            color: rgba(100, 4, 144, 0.576);
+            transition: 0.8s;
+        }
+        .anchor-1:hover{
+           color: rgb(1, 32, 53);
+        }
+        .h{
+            margin: 0;
+            text-align: center;
+            width: 100%;
+            height: 80px;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* border: 1px solid; */
+        }
+        
+    </style>
+</head>
+<body>
+   
+    <div class="anchor">
+        <a class="anchor-1" href="calsi.html">Calculator</a>
+        <a class="anchor-1" href="clock.html">Digital Clock</a>
+        <a class="anchor-1" href="todoproject.html">To Do List</a>
+        <a class="anchor-1" href="slider.html">Carousel</a>
+        <a class="anchor-1" href="sign.html">Login & Signup</a>
+       </div>
+       <h1 class="h">Clock</h1>
+    <div class="container">
+        <span id="hour"></span><span class="di">:</span>
+        <span id="minutes"></span><span class="di">:</span>
+        <span id="second"></span>
+        <span id="ampm"></span>
+        
+    </div>
+
+</body>
+<script>
+       // Digital clock 
+       function time(){
+        document.getElementById("ampm").innerHTML
+        var datetime = new Date();
+        var hr = datetime.getHours();
+        var min = datetime.getMinutes();
+        var sec = datetime.getSeconds();
+        if(hr>12){
+            hr=hr-12
+            ampm.innerHTML="am"
+        } 
+        else{
+            ampm.innerHTML='pm'
+        }
+
+        document.getElementById("hour").innerHTML=zero(hr)
+        document.getElementById("minutes").innerHTML=zero(min)
+        document.getElementById("second").innerHTML=zero(sec)
+    }
+    function zero(num){
+    return num<10?"0"+num:num
+    }
+    setInterval(time,1000)
+</script>
+</html>
